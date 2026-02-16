@@ -707,7 +707,8 @@
                     currentIndex = 0;
                     updateGalleryImage();
                     modal.classList.remove('hidden');
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    document.body.classList.add('overflow-hidden');
+                    document.documentElement.classList.add('overflow-hidden');
                 }
             } catch (e) {
                 console.error('Error parsing gallery data', e);
@@ -716,7 +717,8 @@
 
         function closeGallery() {
             modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Restore scrolling
+            document.body.classList.remove('overflow-hidden');
+            document.documentElement.classList.remove('overflow-hidden');
             setTimeout(() => {
                 galleryImage.src = '';
             }, 300);
